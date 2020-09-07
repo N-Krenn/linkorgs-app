@@ -30,7 +30,7 @@ services:
       interface:
   
   pgadmin:
-    image: fenglc/pgadmin4
+    image: dpage/pgadmin4
     container_name: pgadmin
     env_file:
       - ./env
