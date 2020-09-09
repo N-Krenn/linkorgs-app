@@ -63,7 +63,7 @@
 				$statement->execute(array(
 					"api_link" => $api_link,
 					"page_link" => $page_link,
-					"jsonresult => $jsonresult  
+					"jsonresult" => $jsonresult  
 				));
 			}
 
