@@ -42,7 +42,7 @@
       $csv = array_map('str_getcsv', file('portalurls.csv'));
       
       url = parse_url($ckan_api);
-      if(in_array(url->host, $csv){
+      if(in_array(url->host, $csv)) {
         echo("Found url, is whitelisted");
       
         $jsonresult = transfer_metadata($ckan_api);
