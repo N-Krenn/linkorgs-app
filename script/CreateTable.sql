@@ -244,4 +244,8 @@ ALTER TABLE ONLY linkorgs.links
 
 ALTER TABLE ONLY linkorgs.votes
     ADD CONSTRAINT "links-votes" FOREIGN KEY (fk_link_id) REFERENCES linkorgs.links(id) ON UPDATE RESTRICT;
-
+	
+CREATE USER linkorgs WITH PASSWORD 'test123123';
+GRANT CONNECT ON DATABASE linkorgs TO linkorgs;
+GRANT USAGE ON SCHEMA linkorgs TO linkorgs;
+GRANT SELECT,UPDATE,INSERT ON ALL TABLES IN SCHEMA linkorgs TO linkorgs;
