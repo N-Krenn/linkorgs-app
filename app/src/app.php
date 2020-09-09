@@ -72,10 +72,8 @@
 			# The purpose of this app is to provide the iframe for CKAN distributions. At the moment, on-page voting and adding is not supported.
 			
 			
-			#Getting the Get parameters. Maybe implement an Injection-Safe method or check for XSS
-			$pack_id = $_GET['pack_id'];
+			#Getting the Get parameter.
 			$api_link = $_GET['api_link'];
-			$page_link = $_GET['page_link'];
 			
 			
 			
@@ -93,7 +91,7 @@
 						//Insert dataset into our database - coming soon
 						echo "Please wait a minute. This dataset is new for us and we are storing the data in our database...";
 					
-						storenewdataset(transfer_metadata($api_link));
+						include 'storedataset.php';
 						
 						echo "<script>window.location.reload()</script> Javascript reload triggered. <h1>Reload your page manually if you do see this!</h1>";
 				}
