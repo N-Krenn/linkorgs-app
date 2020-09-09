@@ -32,42 +32,6 @@
 			include 'database.php';
 
 			#Prerequisites, might outsource this into a class or another php file, do not know if we only use it once in here.
-			
-			#based on source: https://github.com/seanburlington/drupal-ckan/blob/master/ckan.php
-			
-			function transfer_metadata($url){
-				#Maybe think about filtering metadata to the respective fields right now, instead of pulling everything. Reduces traffic.
-				$ch = curl_init();
-
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-				curl_setopt($ch, CURLOPT_HEADER, 0);
-				curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-				
-				curl_setopt($ch, CURLOPT_URL, $url);
-				
-				$result = curl_exec($ch);
-				$info = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-				curl_close($ch);
-				if ($info != 200){
-				throw new Exception('Error Code received from API:' . $info['http_code']);
-				}
-				if (!$result){
-					throw new Exception('No Result');
-				}
-				return $result;
-			}
-			
-			function storenewdataset($jsonresult){
-				global $api_link, $page_link; #need to solve this better in later dev
-				$statement = $conn->prepare("INSERT INTO linkorgs.datasets (ckan_api, portallink, metadata, name) VALUES (':api_link', ':page_link', ':jsonresult', '')");
-				$statement->execute(array(
-					"api_link" => $api_link,
-					"page_link" => $page_link,
-					"jsonresult" => $jsonresult  
-				));
-			}
-
-
 
 			# The purpose of this app is to provide the iframe for CKAN distributions. At the moment, on-page voting and adding is not supported.
 			
