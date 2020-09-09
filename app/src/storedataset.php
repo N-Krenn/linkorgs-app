@@ -52,7 +52,7 @@
         storenewdataset($jsonresult, $page_link, $api_link);
       }
       else {
-        echo("<br>")
+        echo("<br>");
 	throw new Exception("This might be a forged API URL or your portal is not allowed in our application. Try again.");
       }
       
