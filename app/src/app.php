@@ -28,6 +28,8 @@
 	<div class="container-fluid">
 	<h1>Linkorgs</h1>
 		<?php
+			#Including the database
+			include 'database.php';
 
 			#Prerequisites, might outsource this into a class or another php file, do not know if we only use it once in here.
 			
@@ -57,8 +59,12 @@
 			
 			function storenewdataset($jsonresult){
 				global $api_link, $page_link; #need to solve this better in later dev
-				$query = "INSERT INTO linkorgs.datasets (ckan_api, portallink, metadata, name) VALUES ('$api_link', '$page_link', '$jsonresult', '')";
-				$result = pg_query($query) or die('Query failed: ' . pg_last_error());
+				$statement = $conn->prepare("INSERT INTO linkorgs.datasets (ckan_api, portallink, metadata, name) VALUES (':api_link', ':page_link', ':jsonresult', '')");
+				$statement->execute(array(
+					"api_link" => $api_link,
+					"page_link" => $page_link,
+					"jsonresult => $jsonresult  
+				));
 			}
 
 
@@ -74,16 +80,14 @@
 			
 			
 			#Step 1: Checking if the dataset is stored in our database already
-				// Connection
-				$dbconn = pg_connect("host=localhost dbname=linkorgs user=linkorgs password=test123123")
-					or die('Failure: ' . pg_last_error());
-
-				// Query
-				$query = "SELECT * FROM linkorgs.datasets  WHERE ckan_api='$api_link'";    ## Make SQL Injection Proof / use PDOs
-				$result = pg_query($query) or die('Query failed: ' . pg_last_error());
+				
+				$statement = $conn->prepare("SELECT * FROM linkorgs.datasets WHERE ckan_api=:api_link");
+				$statement->execute(array(
+				    "api_link" => $api_link
+				));
 
 				// Check if empty
-				if(pg_num_rows($result) == 0)
+				if($statement->rowCount() == 0)
 				{
 					//empty
 						//Insert dataset into our database - coming soon
@@ -96,17 +100,19 @@
 
 			#Step 2: If in the database --> call page and load needed data
 			echo "Found in Database... Loading data now<br>";
-				$query = "SELECT * FROM linkorgs.v_app WHERE ckan_api = '$api_link' ORDER BY sum DESC";
-				$result = pg_query($query) or die('Query failed: ' . pg_last_error());
+				$statement = $conn->prepare("SELECT * FROM linkorgs.v_app WHERE ckan_api=':api_link' ORDER BY sum DESC");
+				$statement->execute(array(
+				    "api_link" => $api_link
+				));
 				
-				if(pg_num_rows($result) == 0)
+				if($statement->rowCount() == 0)
 				{
 					#result empty
 					echo "No matched links found. Help us out by adding one now!";
 				}
 				else
 				{
-					while ($row = pg_fetch_row($result)) {
+					while ($row = $statement->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
 						echo "<div class='row'> Wikidata Url: <a href='$row[0]' target='_blank'>$row[0]</a>  Total Votes: $row[1]  Rating: $row[2]  <div class='vertical-input-group' role='group'><span class='input-group upvote_button glyphicon glyphicon-plus' style='width: 30px;' value='$row[4]'></span> <span class='input-group downvote_button glyphicon glyphicon-minus' style='width:30px;' value='$row[4]'></span></div></div>";
 						#Need to implement Google Recaptcha here!
 						echo "<br />\n";
