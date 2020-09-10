@@ -43,10 +43,9 @@
       
       #$csv = array_map('str_getcsv', file('portalurls.csv'));
       $csv = file('portalurls.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-      var_dump($csv);
       
       $url = parse_url($api_link);
-  var_dump($url);
+
       if(in_array($url["host"], $csv)) {
         echo("Found url, is whitelisted");
       
