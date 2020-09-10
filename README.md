@@ -1,7 +1,7 @@
 # linkorgs-app
 
 This project is part of a bachelor thesis at the Vienna University of Economics and Business (https://www.wu.ac.at/). It has been developed to fill a gap in the current
-ecosystem and serves as a development repository for the name-giving web-service. You can find the thesis here (blabla.org) and our service at (data.wu.ac.at/xy).
+ecosystem and serves as a development repository for the name-giving webservice. You can find the thesis here (blabla.org) and our service at (data.wu.ac.at/xy).
 
 # Installation
 
