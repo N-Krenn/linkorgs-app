@@ -5,6 +5,7 @@
       #In order to limit potential intruders ability to set up a own CKAN version with a modified API, we filter allowed domains by using a list of domains, which has been
       #provided by Dr. Sebastian Neumaier (WU Vienna) in his portalwatch project.
       
+      
 			function transfer_metadata($url){
 				#Maybe think about filtering metadata to the respective fields right now, instead of pulling everything. Reduces traffic.
 				$ch = curl_init();
@@ -28,24 +29,28 @@
 			}
 			
 			function storenewdataset($jsonresult, $page_link, $api_link){
-				$statement = $conn->prepare("INSERT INTO linkorgs.datasets (ckan_api, portallink, metadata, name) VALUES (':api_link', ':page_link', ':jsonresult', '')");
+				include 'database.php';
+				$statement = $conn->prepare("INSERT INTO linkorgs.datasets (ckan_api, portallink, metadata, name) VALUES (:api_link, :page_link, :jsonresult, '')");
 				$statement->execute(array(
 					"api_link" => $api_link,
 					"page_link" => $page_link,
 					"jsonresult" => $jsonresult  
 				));
 			}
-      
+           
       
       #URL Checking
       
-      $csv = array_map('str_getcsv', file('portalurls.csv'));
+      #$csv = array_map('str_getcsv', file('portalurls.csv'));
+      $csv = file('portalurls.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+      var_dump($csv);
       
-      $url = parse_url($ckan_api);
-      if(in_array($url->host, $csv)) {
+      $url = parse_url($api_link);
+  var_dump($url);
+      if(in_array($url["host"], $csv)) {
         echo("Found url, is whitelisted");
       
-        $jsonresult = transfer_metadata($ckan_api);
+        $jsonresult = transfer_metadata($api_link);
         $metadata = json_decode($jsonresult);
         $page_link = $metadata->result->metadata_linkage;
 
@@ -55,4 +60,6 @@
         echo("<br>");
 	throw new Exception("This might be a forged API URL or your portal is not allowed in our application. Try again.");
       }
+      
+?>
       

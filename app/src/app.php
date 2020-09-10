@@ -79,6 +79,7 @@
 						#Need to implement Google Recaptcha here!
 						echo "<br />\n";
 					}
+					$statement->closeCursor();
 				}
 				
 				
