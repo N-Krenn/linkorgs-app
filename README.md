@@ -27,3 +27,5 @@ docker-compose up -d
 ```
 
 To start the docker containers. Everything should be live now, reachable under localhost:80/app.php. You can access the PGADMIN tool (https://www.pgadmin.org/download/pgadmin-4-container/) via localhost:5050, using the predefined configurationed credentials. We recommend using the PGSQL Admin Credentials to connect to the database.
+
+To make use of the service, the only input required is the CKAN API link to the respective dataset. This can be achieved either manually (localhost/app.php?api_link=YOURAPILINK.COM/) or via our CKAN Extension, which essentially does only provide an embedded HTML iframe with the associated datasets API Link. (https://github.com/N-Krenn/ckanext-linkorgs)
