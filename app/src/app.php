@@ -62,7 +62,7 @@
 				}
 
 			#Step 2: If in the database --> call page and load needed data
-			echo "Found in Database... Loading data now<br>";
+			echo "Found in Database... Loading data now:<br>";
 				$statement = $conn->prepare("SELECT * FROM linkorgs.v_app WHERE ckan_api=:api_link ORDER BY sum DESC");
 				$statement->execute(array(
 				    "api_link" => $api_link
