@@ -26,7 +26,8 @@
     
 	
 	<div class="container-fluid">
-	<h1>Linkorgs</h1>
+	<h2>Linkorgs</h2>
+		This plugin provides a voting option for organizational linking to users. Enter new Wikipedia links or continue to vote for existing links. <br>
 		<?php
 			#Including the database
 			include 'database.php';
