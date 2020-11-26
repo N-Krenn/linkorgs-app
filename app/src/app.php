@@ -27,7 +27,7 @@
 	
 	<div class="container-fluid">
 	<h2>Linkorgs</h2>
-		This plugin provides a voting option for organizational linking to users. Enter new Wikipedia links or continue to vote for existing links. <br>
+		This plugin provides a voting option for organizational linking to users. Enter new Wikidata links or continue to vote for existing links. <br>
 		<?php
 			#Including the database
 			include 'database.php';
@@ -68,7 +68,7 @@
 				}
 
 			#Step 2: If in the database --> call page and load needed data
-			echo "Found in Database... Loading data now:<br>";
+			echo "Found in Database... Loading data now:<br><br>";
 				$statement = $conn->prepare("SELECT * FROM linkorgs.v_app WHERE ckan_api=:api_link ORDER BY sum DESC");
 				$statement->execute(array(
 				    "api_link" => $api_link
