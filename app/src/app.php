@@ -43,7 +43,8 @@
 			#As this is a One-page application, we only show the Introductory text if there is no parameter provided.
 			if($api_link == "")
 			{
-				echo "This project is part of a bachelor thesis at the Vienna University of Economics and Business (https://www.wu.ac.at/). It has been developed to fill a gap in the current ecosystem and serves as a development repository for the name-giving webservice. You can either use the application by adding the GET parameter api-link (e.g. URL/app.php?api-link=https://data.gv.at/LINKTOMETADATAAPI) or use the corresponding implemented plugins at your Open Data Portals site. For more information on the project, please visit <a href='https://github.com/N-Krenn/linkorgs-app'>https://github.com/N-Krenn/linkorgs-app</a>."
+				echo "This project is part of a bachelor thesis at the Vienna University of Economics and Business (https://www.wu.ac.at/). It has been developed to fill a gap in the current ecosystem and serves as a development repository for the name-giving webservice. You can either use the application by adding the GET parameter api-link (e.g. URL/app.php?api-link=https://data.gv.at/LINKTOMETADATAAPI) or use the corresponding implemented plugins at your Open Data Portals site. For more information on the project, please visit <a href='https://github.com/N-Krenn/linkorgs-app'>https://github.com/N-Krenn/linkorgs-app</a>.";
+				exit();
 			}
 			
 			
