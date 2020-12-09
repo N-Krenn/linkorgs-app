@@ -31,7 +31,8 @@ CREATE TABLE linkorgs.links (
     fk_ckan_api text NOT NULL,
     wiki_url text NOT NULL,
     created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    ip inet NOT NULL
+    ip inet NOT NULL,
+    useragent text NOT NULL
 );
 
 
@@ -80,7 +81,8 @@ CREATE TABLE linkorgs.votes (
     fk_link_id integer NOT NULL,
     direction smallint NOT NULL,
     voted_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    ip inet NOT NULL
+    ip inet NOT NULL,
+    useragent text NOT NULL
 );
 
 --
@@ -141,35 +143,35 @@ INSERT INTO linkorgs.links VALUES (4, 'http://localhost:5000/api/3/action/packag
 -- Data for Name: votes; Type: TABLE DATA; Schema: linkorgs; Owner: nicola
 --
 
-INSERT INTO linkorgs.votes VALUES (1, 1, 1, '2020-08-26 13:34:09.480031+02', '10.2.3.4');
-INSERT INTO linkorgs.votes VALUES (2, 2, -1, '2020-08-27 13:27:33.360765+02', '10.2.3.5');
-INSERT INTO linkorgs.votes VALUES (3, 2, 1, '2020-08-27 15:44:51.467316+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (4, 2, -1, '2020-08-27 15:45:53.84811+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (5, 2, 1, '2020-08-27 15:48:16.911796+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (6, 2, 1, '2020-08-27 15:54:32.702955+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (7, 2, -1, '2020-08-27 15:57:08.337936+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (8, 2, -1, '2020-08-27 15:57:15.968861+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (10, 2, -1, '2020-08-27 17:23:56.540714+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (11, 3, 1, '2020-08-27 20:09:47.842286+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (12, 3, 1, '2020-08-27 20:11:22.076866+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (13, 3, -1, '2020-08-27 20:11:24.811656+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (14, 3, -1, '2020-08-27 20:13:00.086156+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (15, 3, -1, '2020-08-27 20:13:02.282269+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (16, 3, -1, '2020-08-27 20:13:03.775791+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (17, 3, 1, '2020-08-27 20:13:16.821728+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (18, 2, 1, '2020-08-27 20:13:24.75807+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (19, 3, 1, '2020-08-27 20:13:38.540006+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (20, 3, 1, '2020-08-27 20:13:41.786254+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (21, 3, 1, '2020-08-27 20:13:44.229134+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (22, 2, -1, '2020-08-28 15:00:22.492669+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (23, 3, -1, '2020-08-28 15:28:29.684656+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (24, 3, -1, '2020-08-28 15:28:40.815136+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (25, 4, 1, '2020-09-02 15:38:31.063548+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (26, 4, -1, '2020-09-02 15:38:35.512192+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (27, 4, 1, '2020-09-02 15:38:38.625373+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (28, 4, 1, '2020-09-02 15:38:40.459837+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (29, 4, -1, '2020-09-03 13:08:18.35432+02', '127.0.0.1');
-INSERT INTO linkorgs.votes VALUES (30, 4, 1, '2020-09-03 13:08:24.197464+02', '127.0.0.1');
+INSERT INTO linkorgs.votes VALUES (1, 1, 1, '2020-08-26 13:34:09.480031+02', '10.2.3.4', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (2, 2, -1, '2020-08-27 13:27:33.360765+02', '10.2.3.5', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (3, 2, 1, '2020-08-27 15:44:51.467316+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (4, 2, -1, '2020-08-27 15:45:53.84811+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (5, 2, 1, '2020-08-27 15:48:16.911796+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (6, 2, 1, '2020-08-27 15:54:32.702955+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (7, 2, -1, '2020-08-27 15:57:08.337936+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (8, 2, -1, '2020-08-27 15:57:15.968861+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (10, 2, -1, '2020-08-27 17:23:56.540714+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (11, 3, 1, '2020-08-27 20:09:47.842286+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (12, 3, 1, '2020-08-27 20:11:22.076866+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (13, 3, -1, '2020-08-27 20:11:24.811656+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (14, 3, -1, '2020-08-27 20:13:00.086156+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (15, 3, -1, '2020-08-27 20:13:02.282269+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (16, 3, -1, '2020-08-27 20:13:03.775791+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (17, 3, 1, '2020-08-27 20:13:16.821728+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (18, 2, 1, '2020-08-27 20:13:24.75807+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (19, 3, 1, '2020-08-27 20:13:38.540006+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (20, 3, 1, '2020-08-27 20:13:41.786254+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (21, 3, 1, '2020-08-27 20:13:44.229134+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (22, 2, -1, '2020-08-28 15:00:22.492669+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (23, 3, -1, '2020-08-28 15:28:29.684656+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (24, 3, -1, '2020-08-28 15:28:40.815136+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (25, 4, 1, '2020-09-02 15:38:31.063548+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (26, 4, -1, '2020-09-02 15:38:35.512192+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (27, 4, 1, '2020-09-02 15:38:38.625373+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (28, 4, 1, '2020-09-02 15:38:40.459837+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (29, 4, -1, '2020-09-03 13:08:18.35432+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.votes VALUES (30, 4, 1, '2020-09-03 13:08:24.197464+02', '127.0.0.1', 'manualSQL');
 
 
 --
