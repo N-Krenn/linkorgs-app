@@ -13,6 +13,11 @@
 			"ip" => $ip,
 			"useragent" => $useragent
 		));
-		
-		echo "success";
+
+		if($statement->rowCount() == 1){
+			echo "success"; #we need this for the ajax script to confirm	
+		}
+		elseif($statement->rowCount() == 0 {
+			alert("This is your second vote for this link within 24 hours. Please wait until the cooldown is finished and note that we do not want users to mass-vote on links!");
+		}
 ?>
