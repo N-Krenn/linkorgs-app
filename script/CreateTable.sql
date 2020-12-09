@@ -14,7 +14,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: datasets; Type: TABLE; Schema: linkorgs; Owner: nicola
+-- Name: datasets; Type: TABLE; Schema: linkorgs
 --
 
 CREATE TABLE linkorgs.datasets (
@@ -46,14 +46,14 @@ CREATE SEQUENCE linkorgs.links_id_seq
 
 
 --
--- Name: links_id_seq; Type: SEQUENCE OWNED BY; Schema: linkorgs; Owner: nicola
+-- Name: links_id_seq; Type: SEQUENCE OWNED BY; Schema: linkorgs
 --
 
 ALTER SEQUENCE linkorgs.links_id_seq OWNED BY linkorgs.links.id;
 
 
 --
--- Name: v_app; Type: VIEW; Schema: linkorgs; Owner: nicola
+-- Name: v_app; Type: VIEW; Schema: linkorgs
 --
 
 CREATE VIEW linkorgs.v_app AS
@@ -66,14 +66,14 @@ SELECT
 
 
 --
--- Name: VIEW v_app; Type: COMMENT; Schema: linkorgs; Owner: nicola
+-- Name: VIEW v_app; Type: COMMENT; Schema: linkorgs
 --
 
 COMMENT ON VIEW linkorgs.v_app IS 'Data Necessary for depicting the datasets';
 
 
 --
--- Name: votes; Type: TABLE; Schema: linkorgs; Owner: nicola
+-- Name: votes; Type: TABLE; Schema: linkorgs
 --
 
 CREATE TABLE linkorgs.votes (
@@ -86,7 +86,7 @@ CREATE TABLE linkorgs.votes (
 );
 
 --
--- Name: votes_id_seq; Type: SEQUENCE; Schema: linkorgs; Owner: nicola
+-- Name: votes_id_seq; Type: SEQUENCE; Schema: linkorgs
 --
 
 CREATE SEQUENCE linkorgs.votes_id_seq
@@ -98,28 +98,28 @@ CREATE SEQUENCE linkorgs.votes_id_seq
     CACHE 1;
 
 --
--- Name: votes_id_seq; Type: SEQUENCE OWNED BY; Schema: linkorgs; Owner: nicola
+-- Name: votes_id_seq; Type: SEQUENCE OWNED BY; Schema: linkorgs
 --
 
 ALTER SEQUENCE linkorgs.votes_id_seq OWNED BY linkorgs.votes.id;
 
 
 --
--- Name: links id; Type: DEFAULT; Schema: linkorgs; Owner: nicola
+-- Name: links id; Type: DEFAULT; Schema: linkorgs
 --
 
 ALTER TABLE ONLY linkorgs.links ALTER COLUMN id SET DEFAULT nextval('linkorgs.links_id_seq'::regclass);
 
 
 --
--- Name: votes id; Type: DEFAULT; Schema: linkorgs; Owner: nicola
+-- Name: votes id; Type: DEFAULT; Schema: linkorgs
 --
 
 ALTER TABLE ONLY linkorgs.votes ALTER COLUMN id SET DEFAULT nextval('linkorgs.votes_id_seq'::regclass);
 
 
 --
--- Data for Name: datasets; Type: TABLE DATA; Schema: linkorgs; Owner: nicola
+-- Data for Name: datasets; Type: TABLE DATA; Schema: linkorgs
 --
 
 INSERT INTO linkorgs.datasets VALUES ('http://localhost:5000/api/3/action/package_show?id=fffde6d1-d932-4bde-ad5b-87816d47a91c', 'not implemented yet lol', '{"help": "http://localhost:5000/api/3/action/help_show?name=package_show", "result": {"id": "fffde6d1-d932-4bde-ad5b-87816d47a91c", "url": null, "name": "oh_rechnungsabschluss-ganserndorf-2004", "tags": [{"id": "5467cedf-49db-402e-87fa-16507498739e", "name": "Ausgaben", "state": "active", "display_name": "Ausgaben", "vocabulary_id": null}, {"id": "a878cc8f-38e9-45f7-bf70-84d39d429416", "name": "Einnahmen", "state": "active", "display_name": "Einnahmen", "vocabulary_id": null}, {"id": "0591d4ac-1acf-49b7-b9fe-9ec3d28efd4d", "name": "Gemeinde", "state": "active", "display_name": "Gemeinde", "vocabulary_id": null}, {"id": "8e70a660-39e5-4aaa-b226-fa6eb80f88a2", "name": "Gemeindefinanzen", "state": "active", "display_name": "Gemeindefinanzen", "vocabulary_id": null}, {"id": "50826803-8876-4008-b941-488a614ff1aa", "name": "Haushalt", "state": "active", "display_name": "Haushalt", "vocabulary_id": null}, {"id": "8a0d023e-5f26-496b-bbb5-c658d4f6ce2f", "name": "Offenerhaushalt.at", "state": "active", "display_name": "Offenerhaushalt.at", "vocabulary_id": null}, {"id": "522c2589-c9f3-437a-9147-df2440748d3a", "name": "Rechnungsabschluss", "state": "active", "display_name": "Rechnungsabschluss", "vocabulary_id": null}], "type": "dataset", "notes": "Rechnungsabschluss der Gemeinde - Einnahmen und Ausgaben", "state": "active", "title": "Rechnungsabschluss Gänserndorf 2004 (Statistik Austria)", "author": null, "extras": [{"key": "metadata_origin_portal", "value": "https://data.offenerhaushalt.at"}], "groups": [{"id": "3dbc23aa-c7dc-4f73-b126-84146312d6e6", "name": "testgrp", "title": "TestGrp", "description": "", "display_name": "TestGrp", "image_display_url": ""}], "isopen": false, "private": false, "version": null, "num_tags": 7, "owner_org": "2930682a-9e78-4af6-aac5-e25306d37bb3", "resources": [{"id": "23dcb5e5-e596-412b-a14f-e970224a6a41", "url": "https://www.offenerhaushalt.at/data/download/30817_2004_STA_RA", "hash": "", "name": "Rechnungsabschluss Gänserndorf 2004 (Statistik Austria)", "size": null, "state": "active", "format": "CSV", "created": "2017-11-13T00:00:00", "mimetype": null, "position": 0, "url_type": null, "cache_url": null, "package_id": "fffde6d1-d932-4bde-ad5b-87816d47a91c", "description": "", "revision_id": "1b21474d-5aa7-4024-b8d0-c633c7f9af58", "last_modified": "2017-11-13T00:00:00", "resource_type": null, "mimetype_inner": null, "datastore_active": false, "cache_last_updated": null}], "license_id": "cc-by-40", "maintainer": "Gänserndorf", "revision_id": "1b21474d-5aa7-4024-b8d0-c633c7f9af58", "author_email": null, "organization": {"id": "2930682a-9e78-4af6-aac5-e25306d37bb3", "name": "open-data-austria", "type": "organization", "state": "active", "title": "Open Data Austria", "created": "2020-07-23T14:03:41.165253", "image_url": "", "description": "", "revision_id": "7cbd43b1-6dba-438d-a64a-a01677f5a147", "approval_status": "approved", "is_organization": true}, "license_title": "cc-by-40", "num_resources": 1, "creator_user_id": "913f3dcb-24c8-4c43-a877-214bbb27e2d7", "maintainer_email": null, "metadata_created": "2020-07-23T21:17:30.688921", "metadata_modified": "2020-07-23T21:17:30.688934", "relationships_as_object": [], "relationships_as_subject": []}, "success": true}', 'Also not implemented');
@@ -130,7 +130,7 @@ INSERT INTO linkorgs.datasets VALUES ('http://localhost:5000/api/3/action/packag
 
 
 --
--- Data for Name: links; Type: TABLE DATA; Schema: linkorgs; Owner: nicola
+-- Data for Name: links; Type: TABLE DATA; Schema: linkorgs
 --
 
 INSERT INTO linkorgs.links VALUES (1, 'http://localhost:5000/api/3/action/package_show?id=ffee169d-36e8-40bc-9794-20eb4f8640eb', 'wikidata.org/blabla', '2020-08-26 13:32:31.770824+02', '10.2.3.4', 'manualSQL');
@@ -140,7 +140,7 @@ INSERT INTO linkorgs.links VALUES (4, 'http://localhost:5000/api/3/action/packag
 
 
 --
--- Data for Name: votes; Type: TABLE DATA; Schema: linkorgs; Owner: nicola
+-- Data for Name: votes; Type: TABLE DATA; Schema: linkorgs
 --
 
 INSERT INTO linkorgs.votes VALUES (1, 1, 1, '2020-08-26 13:34:09.480031+02', '10.2.3.4', 'manualSQL');
@@ -175,21 +175,21 @@ INSERT INTO linkorgs.votes VALUES (30, 4, 1, '2020-09-03 13:08:24.197464+02', '1
 
 
 --
--- Name: links_id_seq; Type: SEQUENCE SET; Schema: linkorgs; Owner: nicola
+-- Name: links_id_seq; Type: SEQUENCE SET; Schema: linkorgs
 --
 
 SELECT pg_catalog.setval('linkorgs.links_id_seq', 4, true);
 
 
 --
--- Name: votes_id_seq; Type: SEQUENCE SET; Schema: linkorgs; Owner: nicola
+-- Name: votes_id_seq; Type: SEQUENCE SET; Schema: linkorgs
 --
 
 SELECT pg_catalog.setval('linkorgs.votes_id_seq', 30, true);
 
 
 --
--- Name: datasets datasets_pkey; Type: CONSTRAINT; Schema: linkorgs; Owner: nicola
+-- Name: datasets datasets_pkey; Type: CONSTRAINT; Schema: linkorgs
 --
 
 ALTER TABLE ONLY linkorgs.datasets
@@ -197,7 +197,7 @@ ALTER TABLE ONLY linkorgs.datasets
 
 
 --
--- Name: datasets datasets_portallink_key; Type: CONSTRAINT; Schema: linkorgs; Owner: nicola
+-- Name: datasets datasets_portallink_key; Type: CONSTRAINT; Schema: linkorgs
 --
 
 ALTER TABLE ONLY linkorgs.datasets
@@ -205,7 +205,7 @@ ALTER TABLE ONLY linkorgs.datasets
 
 
 --
--- Name: links links_pkey; Type: CONSTRAINT; Schema: linkorgs; Owner: nicola
+-- Name: links links_pkey; Type: CONSTRAINT; Schema: linkorgs
 --
 
 ALTER TABLE ONLY linkorgs.links
@@ -213,7 +213,7 @@ ALTER TABLE ONLY linkorgs.links
 
 
 --
--- Name: votes votes_pkey; Type: CONSTRAINT; Schema: linkorgs; Owner: nicola
+-- Name: votes votes_pkey; Type: CONSTRAINT; Schema: linkorgs
 --
 
 ALTER TABLE ONLY linkorgs.votes
@@ -221,7 +221,7 @@ ALTER TABLE ONLY linkorgs.votes
 
 
 --
--- Name: v_app _RETURN; Type: RULE; Schema: linkorgs; Owner: nicola
+-- Name: v_app _RETURN; Type: RULE; Schema: linkorgs
 --
 
 CREATE OR REPLACE VIEW linkorgs.v_app AS
@@ -237,7 +237,7 @@ CREATE OR REPLACE VIEW linkorgs.v_app AS
 
 
 --
--- Name: links ckan_api; Type: FK CONSTRAINT; Schema: linkorgs; Owner: nicola
+-- Name: links ckan_api; Type: FK CONSTRAINT; Schema: linkorgs
 --
 
 ALTER TABLE ONLY linkorgs.links
@@ -245,7 +245,7 @@ ALTER TABLE ONLY linkorgs.links
 
 
 --
--- Name: votes links-votes; Type: FK CONSTRAINT; Schema: linkorgs; Owner: nicola
+-- Name: votes links-votes; Type: FK CONSTRAINT; Schema: linkorgs
 --
 
 ALTER TABLE ONLY linkorgs.votes
