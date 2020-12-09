@@ -18,6 +18,7 @@
 			echo "success"; #we need this for the ajax script to confirm	
 		}
 		elseif($statement->rowCount() == 0) {
-			alert("This is your second vote for this link within 24 hours. Please wait until the cooldown is finished and note that we do not want users to mass-vote on links!");
+			echo("This is your second vote for this link within 24 hours. Please wait until the cooldown is finished and note that we do not want users to mass-vote on links!");
+			#note that other errors are not part of the output.
 		}
 ?>
