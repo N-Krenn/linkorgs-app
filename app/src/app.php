@@ -137,8 +137,8 @@
 					alert("Successfully voted. Thank you for your help!");
 					window.location.reload();
 				} else {
-					// if vote.php returns failure, display error
-					alert("Failure. Please try again.");
+					// if vote.php returns something else than success, it is a failure. This can be because: the user voted twice a day OR a general error we do not handle (e.g. because of meddling with the input). Therefore, it only displays the error that the user voted too many times.
+					alert("Failure. This is your second vote for this link within 24 hours. Please wait until the cooldown is finished and note that we do not want users to mass-vote on links!");
 					window.location.reload();
 				}  
 			}
@@ -162,8 +162,8 @@
 					alert("Successfully voted. Thank you for your help!");
 					window.location.reload();
 				} else {
-					// if vote.php returns failure, display error
-					alert("Failure. Please reload and try again.");
+					// if vote.php returns something else than success, it is a failure. This can be because: the user voted twice a day OR a general error we do not handle (e.g. because of meddling with the input). Therefore, it only displays the error that the user voted too many times.
+					alert("Failure. This is your second vote for this link within 24 hours. Please wait until the cooldown is finished and note that we do not want users to mass-vote on links!");
 					window.location.reload();
 				}  
 			}
@@ -184,12 +184,12 @@
 			success: function(data) {
 				//alert(data);
 				if (data == "success") {
-					// if vote.php returns success
+					// if addlink.php returns success
 					alert("Successfully added the link. Thank you for your help!");
 					window.location.reload();
 				} else {
-					// if vote.php returns failure, display error
-					alert("Failure. Please reload and try again.");
+					// if addlink.php returns something else than success, it is a failure. This can be because: the user added links twice a day OR a general error we do not handle (e.g. because of meddling with the input). Therefore, it only displays the error that the user added too many times.
+					alert("Failure. This is your second added link for this dataset within 24 hours. Please wait until the cooldown is finished and note that we do not want users to mass-add links!");
 					window.location.reload();
 				}  
 			}
