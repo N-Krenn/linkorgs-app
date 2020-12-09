@@ -133,10 +133,10 @@ INSERT INTO linkorgs.datasets VALUES ('http://localhost:5000/api/3/action/packag
 -- Data for Name: links; Type: TABLE DATA; Schema: linkorgs; Owner: nicola
 --
 
-INSERT INTO linkorgs.links VALUES (1, 'http://localhost:5000/api/3/action/package_show?id=ffee169d-36e8-40bc-9794-20eb4f8640eb', 'wikidata.org/blabla', '2020-08-26 13:32:31.770824+02', '10.2.3.4');
-INSERT INTO linkorgs.links VALUES (2, 'http://localhost:5000/api/3/action/package_show?id=fff93efa-d5ba-425b-9908-a71f0c1c98e1', 'wikidata.com/blabliblub', '2020-08-27 13:27:12.262339+02', '10.2.4.5');
-INSERT INTO linkorgs.links VALUES (3, 'http://localhost:5000/api/3/action/package_show?id=fff93efa-d5ba-425b-9908-a71f0c1c98e1', 'https://www.wikidata.org/wiki/Q278044', '2020-08-27 16:53:35.206726+02', '127.0.0.1');
-INSERT INTO linkorgs.links VALUES (4, 'http://localhost:5000/api/3/action/package_show?id=bfbd1de6-f99a-4024-93cb-9e68274d0d36', 'https://www.wikidata.org/wiki/Q1884195', '2020-09-02 15:38:10.788229+02', '127.0.0.1');
+INSERT INTO linkorgs.links VALUES (1, 'http://localhost:5000/api/3/action/package_show?id=ffee169d-36e8-40bc-9794-20eb4f8640eb', 'wikidata.org/blabla', '2020-08-26 13:32:31.770824+02', '10.2.3.4', 'manualSQL');
+INSERT INTO linkorgs.links VALUES (2, 'http://localhost:5000/api/3/action/package_show?id=fff93efa-d5ba-425b-9908-a71f0c1c98e1', 'wikidata.com/blabliblub', '2020-08-27 13:27:12.262339+02', '10.2.4.5', 'manualSQL');
+INSERT INTO linkorgs.links VALUES (3, 'http://localhost:5000/api/3/action/package_show?id=fff93efa-d5ba-425b-9908-a71f0c1c98e1', 'https://www.wikidata.org/wiki/Q278044', '2020-08-27 16:53:35.206726+02', '127.0.0.1', 'manualSQL');
+INSERT INTO linkorgs.links VALUES (4, 'http://localhost:5000/api/3/action/package_show?id=bfbd1de6-f99a-4024-93cb-9e68274d0d36', 'https://www.wikidata.org/wiki/Q1884195', '2020-09-02 15:38:10.788229+02', '127.0.0.1', 'manualSQL');
 
 
 --
