@@ -19,7 +19,7 @@ SET default_table_access_method = heap;
 
 CREATE TABLE linkorgs.datasets (
     ckan_api text NOT NULL,
-    portallink text NOT NULL,
+    portallink text DEFAULT 'err0r'::text
     metadata jsonb NOT NULL,
     name text DEFAULT 'err0r'::text
 );
