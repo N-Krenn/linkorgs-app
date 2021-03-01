@@ -19,7 +19,7 @@ SET default_table_access_method = heap;
 
 CREATE TABLE linkorgs.datasets (
     ckan_api text NOT NULL,
-    portallink text DEFAULT 'err0r'::text
+    portallink text DEFAULT 'err0r'::text,
     metadata jsonb NOT NULL,
     name text DEFAULT 'err0r'::text
 );
@@ -255,3 +255,4 @@ CREATE USER linkorgs WITH PASSWORD 'test123123';
 GRANT CONNECT ON DATABASE linkorgs TO linkorgs;
 GRANT USAGE ON SCHEMA linkorgs TO linkorgs;
 GRANT SELECT,UPDATE,INSERT ON ALL TABLES IN SCHEMA linkorgs TO linkorgs;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA linkorgs TO linkorgs;
